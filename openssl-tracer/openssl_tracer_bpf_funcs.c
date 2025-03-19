@@ -18,7 +18,7 @@
 
 #include <linux/ptrace.h>
 
-#include "openssl_tracer_types.h"
+#include "openssl_tracer_types_bpf.h"
 
 BPF_PERF_OUTPUT(tls_events);
 
