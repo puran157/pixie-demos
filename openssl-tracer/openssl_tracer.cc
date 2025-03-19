@@ -90,11 +90,12 @@ const PerfBufferSpec kPerfBufferSpec = {
 
 int main(int argc, char** argv) {
   // Read arguments to get the target PID to trace.
-  if (argc != 2) {
-    std::cerr << "Usage: " << argv[0] << " <PID to trace for SSL traffic>" << std::endl;
-    exit(1);
-  }
-  std::string target_pid(argv[1]);
+  // if (argc != 2) {
+  //   std::cerr << "Usage: " << argv[0] << " <PID to trace for SSL traffic>" << std::endl;
+  //   exit(1);
+  // }
+  // std::string target_pid(argv[1]);
+  std::string target_pid(0);
 
   BCCWrapper bcc;
 

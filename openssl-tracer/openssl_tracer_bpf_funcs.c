@@ -89,9 +89,9 @@ int probe_entry_SSL_write(struct pt_regs* ctx) {
   uint64_t current_pid_tgid = bpf_get_current_pid_tgid();
   uint32_t pid = current_pid_tgid >> 32;
 
-  if (pid != TRACE_PID) {
-    return 0;
-  }
+  // if (pid != TRACE_PID) {
+  //   return 0;
+  // }
 
   const char* buf = (const char*)PT_REGS_PARM2(ctx);
   active_ssl_write_args_map.update(&current_pid_tgid, &buf);
@@ -103,9 +103,9 @@ int probe_ret_SSL_write(struct pt_regs* ctx) {
   uint64_t current_pid_tgid = bpf_get_current_pid_tgid();
   uint32_t pid = current_pid_tgid >> 32;
 
-  if (pid != TRACE_PID) {
-    return 0;
-  }
+  // if (pid != TRACE_PID) {
+  //   return 0;
+  // }
 
   const char** buf = active_ssl_write_args_map.lookup(&current_pid_tgid);
   if (buf != NULL) {
@@ -122,9 +122,9 @@ int probe_entry_SSL_read(struct pt_regs* ctx) {
   uint64_t current_pid_tgid = bpf_get_current_pid_tgid();
   uint32_t pid = current_pid_tgid >> 32;
 
-  if (pid != TRACE_PID) {
-    return 0;
-  }
+  // if (pid != TRACE_PID) {
+  //   return 0;
+  // }
 
   const char* buf = (const char*)PT_REGS_PARM2(ctx);
 
@@ -136,9 +136,9 @@ int probe_ret_SSL_read(struct pt_regs* ctx) {
   uint64_t current_pid_tgid = bpf_get_current_pid_tgid();
   uint32_t pid = current_pid_tgid >> 32;
 
-  if (pid != TRACE_PID) {
-    return 0;
-  }
+  // if (pid != TRACE_PID) {
+  //   return 0;
+  // }
 
   const char** buf = active_ssl_read_args_map.lookup(&current_pid_tgid);
   if (buf != NULL) {
