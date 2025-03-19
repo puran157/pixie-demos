@@ -20,6 +20,8 @@
 
 #define MAX_DATA_SIZE 4096
 
+#include <stdint.h>
+
 enum ssl_data_event_type { kSSLRead, kSSLWrite };
 
 struct ssl_data_event_t {
