@@ -95,7 +95,6 @@ int main(int argc, char** argv) {
   //   exit(1);
   // }
   // std::string target_pid(argv[1]);
-  std::string target_pid(0);
 
   BCCWrapper bcc;
 
@@ -105,7 +104,7 @@ int main(int argc, char** argv) {
 
   // Compile the BPF code and load into the kernel.
   // DTRACE_PID is a macro in the BPF code that controls the PID to be traced for SSL traffic.
-  RETURN_IF_ERROR(bcc.Init(bpf_code, {"-DTRACE_PID=" + target_pid}));
+  RETURN_IF_ERROR(bcc.Init(bpf_code, {"-DTRACE_PID="}));
 
   // Deploy uprobes.
   for (auto& probe_spec : kUProbes) {
